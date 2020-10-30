@@ -5,25 +5,17 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   const newState = { ...state };
 
-  if(action.type === "AGE_UP"){
-    newState.age++;
-  }
-
-  if(action.type === "AGE_DOWN"){
-    newState.age--;
-  }
-
   //-- or using switch case --//
-  // switch (action.type) {
-  //   case "AGE_UP":
-  //     newState.age++;
-  //     break;
-  //   case "AGE_DOWN":
-  //     newState.age--;
-  //     break;
-  // }
+  switch (action.type) {
+    case "AGE_UP_ASYNC":
+      newState.age += action.value;
+      break;
+    case "AGE_DOWN":
+      newState.age -= action.value;
+      break;
+  }
 
-  return newState;
+  return newState; 
 };
 
 export default reducer;
